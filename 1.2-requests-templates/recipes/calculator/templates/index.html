@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Рецепты</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f4f4f4;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        .recipe-container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .ingredient-list {
+            list-style-type: none;
+            padding: 0;
+        }
+        .ingredient-list li {
+            background-color: #f9f9f9;
+            padding: 10px;
+            margin: 5px 0;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        .empty-message {
+            text-align: center;
+            color: #888;
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+    <div class="recipe-container">
+        <h1>Рецепт</h1>
+        {% if recipe %}
+            <ul class="ingredient-list">
+                {% for ingredient, amount in recipe.items %}
+                    <li><strong>{{ ingredient }}</strong>: {{ amount }}</li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p class="empty-message">Такого рецепта не знаю :(</p>
+        {% endif %}
+    </div>
+</body>
+</html>
